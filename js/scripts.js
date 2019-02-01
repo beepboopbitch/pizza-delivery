@@ -33,9 +33,16 @@ function Pizza(name, meatTopping, vegTopping, size) {
   this.price = 0;
 }
 
-Pizza.prototype.addPrice = function () {
-  if (this.size === $("select#newSize").val("Medium")) {
+Pizza.prototype.applyScore = function(price) {
+  price = this.addPrice
+  this.price.push(price);
+}
+
+Pizza.prototype.addPrice = function() {
+  console.log(this.price)
+  if (this.size === "Medium") {
     this.price += 1;
+    console.log(this.price)
   }
   return this.price
 }
@@ -84,7 +91,6 @@ $(document).ready(function() {
     $("select#newSize").val("");
     var newPizza = new Pizza(inputtedName, inputtedMeatTopping, inputtedVegTopping, inputtedSize);
     order.addOrder(newPizza);
-    newPizza.addScore(this.price);
     displayOrder(order);
 
   })
