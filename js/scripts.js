@@ -1,7 +1,7 @@
 
 function Order() {
-  this.orders = [],
-  this.orderId = 0
+  this.orders = [];
+  this.orderId = 0;
 }
 
 Order.prototype.addOrder = function(order) {
@@ -26,14 +26,22 @@ Order.prototype.findOrder = function (id) {
 }
 
 function Pizza(name, meatTopping, vegTopping, size) {
-  this.name = name,
-  this.meatTopping = meatTopping,
-  this.vegTopping = vegTopping,
-  this.size = size,
-  this.price = 0
+  this.name = name;
+  this.meatTopping = meatTopping;
+  this.vegTopping = vegTopping;
+  this.size = size;
+  this.price = 0;
 }
 
+
+
 var order = new Order();
+
+Pizza.prototype.addPrice = function() {
+  if (this.size === $("select#newSize").val("Medium")) {
+    this.price += 1
+  }
+}
 
 function displayOrder(orderDisplay) {
   var orders = $("ul#orders");
@@ -68,11 +76,12 @@ $(document).ready(function() {
     var inputtedMeatTopping = $("select#newMeatTopping").val();
     var inputtedVegTopping = $("select#newVegTopping").val();
     var inputtedSize = $("select#newSize").val();
+    var pizzaPrice = "10"
     $("input#newName").val("");
     $("select#newMeatTopping").val("");
     $("select#newVegTopping").val("");
     $("select#newSize").val("");
-    var newPizza = new Pizza(inputtedName, inputtedMeatTopping, inputtedVegTopping, inputtedSize);
+    var newPizza = new Pizza(inputtedName, inputtedMeatTopping, inputtedVegTopping, inputtedSize, pizzaPrice);
     order.addOrder(newPizza);
     displayOrder(order);
   })
