@@ -127,7 +127,7 @@ function showOrder (orderId) {
   $(".meatTopping").html(pizza.meatTopping);
   $(".vegTopping").html(pizza.vegTopping);
   $(".size").html(pizza.size);
-  $(".price").html(pizza.price);
+  $(".price").html( "$" + pizza.price);
 }
 
 function attachOrder() {
@@ -146,14 +146,13 @@ $(document).ready(function() {
     var inputtedMeatTopping = $("select#newMeatTopping").val();
     var inputtedVegTopping = $("select#newVegTopping").val();
     var inputtedSize = $("select#newSize").val();
-    var pizzaPrice = this.price
     $("input#newName").val("");
     $("select#newSauce").val("");
     $("select#newCheese").val("");
     $("select#newMeatTopping").val("");
     $("select#newVegTopping").val("");
     $("select#newSize").val("");
-    var newPizza = new Pizza(inputtedName, inputtedSauce, inputtedCheese, inputtedMeatTopping, inputtedVegTopping, inputtedSize, pizzaPrice);
+    var newPizza = new Pizza(inputtedName, inputtedSauce, inputtedCheese, inputtedMeatTopping, inputtedVegTopping, inputtedSize);
     newPizza.addSizePrice();
     newPizza.addSaucePrice();
     newPizza.addCheesePrice();
