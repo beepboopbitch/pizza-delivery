@@ -1,11 +1,11 @@
 
 function Order() {
   this.orders = [],
-  this.orderId = 0,
+  this.orderId = 0
 }
 
 Order.prototype.addOrder = function(order) {
-  order.id = this.orderId();
+  order.id = this.assignId();
   this.orders.push(order);
 }
 
@@ -30,28 +30,28 @@ function Pizza(name, meatTopping, vegTopping, size) {
   this.meatTopping = meatTopping,
   this.vegTopping = vegTopping,
   this.size = size,
-  this.price = 0,
+  this.price = 0
 }
 
 var order = new Order();
 
 function displayOrder(orderDisplay) {
   var orders = $("ul#orders");
-  var orderInfo = "",
+  var orderInfo = "";
   orderDisplay.orders.forEach(function(order) {
-    orderInfo += "<li id=" + order.id + ">" + oredr.name + ""
-  })
+    orderInfo += "<li id=" + order.id + ">" + order.name + ""
+  });
   orders.html(orderInfo)
 }
 
 function showOrder (orderId) {
-  var order = Order.findOrder(orderId);
+  var pizza = order.findOrder(orderId);
   $("#show-order").show();
-  $(".name").html(order.name);
-  $(".meatTopping").html(order.meatTopping);
-  $(".vegTopping").html(order.vegTopping);
-  $(".size").html(order.size);
-  $(".price").html(order.price);
+  $(".name").html(pizza.name);
+  $(".meatTopping").html(pizza.meatTopping);
+  $(".vegTopping").html(pizza.vegTopping);
+  $(".size").html(pizza.size);
+  $(".price").html(pizza.price);
 }
 
 function attachOrder() {
@@ -67,11 +67,11 @@ $(document).ready(function() {
     var inputtedName = $("input#newName").val();
     var inputtedMeatTopping = $("input#newMeatTopping").val();
     var inputtedVegTopping = $("input#newVegTopping").val();
-    var inputtedSize = $("input#size").val();
+    var inputtedSize = $("input#newSize").val();
     $("input#newName").val("");
     $("input#newMeatTopping").val("");
     $("input#newVegTopping").val("");
-    $("input#size").val("");
+    $("input#newSize").val("");
     var newPizza = new Pizza(inputtedName, inputtedMeatTopping, inputtedVegTopping, inputtedSize);
     order.addOrder(newPizza);
     displayOrder(order);

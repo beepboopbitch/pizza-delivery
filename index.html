@@ -16,10 +16,46 @@
       <h1>Pizza Delivery</h1>
       <div class="row">
         <div class="col-md-6">
-          <h2>Add a Pizza:</h2>
+          <h2>Make a Pizza:</h2>
+          <form id="newPizza">
+            <div class="from-group">
+              <label for="newName">Name:</label>
+              <input type="text" class="form-control" id="newName">
+            </div>
+            <div class="from-group">
+              <label for="newMeatTopping">Meat topping:</label>
+              <input type="text" class="form-control" id="newMeatTopping">
+            </div>
+            <div class="from-group">
+              <label for="newVegTopping">Vegetable topping:</label>
+              <input type="text" class="form-control" id="newVegTopping">
+            </div>
+            <div class="from-group">
+              <label for="newSize">Pizza size:</label>
+              <input type="text" class="form-control" id="newSize">
+            </div>
+            <div class="">
+              <select class="" name="">
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+              </select>
+            </div>
+            <button type="submit" class="btn">Add Pizza</button>
+          </form>
+          <h2>Pizzas:</h2>
+          <ul id="orders">
+          </ul>
         </div>
         <div class="col-md-6">
-
+          <div id="show-order">
+            <p>Name: <span class="name"></span></p>
+            <p>Meat topping: <span class="meatTopping"></span></p>
+            <p>Vegetable Topping: <span class="vegTopping"></span></p>
+            <p>Size: <span class="size"></span></p>
+            <p>Price: <span class="proce"></span></p>
+          </div>
         </div>
       </div>
     </div>
