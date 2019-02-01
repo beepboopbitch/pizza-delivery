@@ -25,8 +25,10 @@ Order.prototype.findOrder = function (id) {
   return false;
 }
 
-function Pizza(name, meatTopping, vegTopping, size) {
+function Pizza(name, sauce, cheese, meatTopping, vegTopping, size) {
   this.name = name;
+  this.sauce = sauce;
+  this.cheese = cheese;
   this.meatTopping = meatTopping;
   this.vegTopping = vegTopping;
   this.size = size;
@@ -46,6 +48,32 @@ Pizza.prototype.addSizePrice = function() {
   return this.price
 }
 
+Pizza.prototype.addSaucePrice = function() {
+  if(this.sauce === "RedSauce"){
+    this.price += 1;
+  } else if (this.sauce === "GarlicSauce") {
+    this.price += 4;
+  } else if (this.sauce === "BBQSauce") {
+    this.price += 3;
+  } else if (this.sauce === "None") {
+    this.price += 0;
+  }
+  return this.price
+}
+
+Pizza.prototype.addCheesePrice = function() {
+  if(this.cheese === "Provolone"){
+    this.price += 3;
+  } else if (this.cheese === "Parmigian") {
+    this.price += 1;
+  } else if (this.cheese === "Cheddar") {
+    this.price += 2;
+  } else if (this.cheese === "None") {
+    this.price += 0;
+  }
+  return this.price
+}
+
 Pizza.prototype.addMeatToppingPrice = function() {
   if(this.meatTopping === "Chicken"){
     this.price += 5;
@@ -55,6 +83,8 @@ Pizza.prototype.addMeatToppingPrice = function() {
     this.price += 7;
   } else if (this.meatTopping === "Pepperoni") {
     this.price += 2;
+  } else if (this.meatTopping === "None") {
+    this.price += 0;
   }
   return this.price
 }
@@ -64,10 +94,12 @@ Pizza.prototype.addVegToppingPrice = function() {
     this.price += 2;
   } else if (this.vegTopping === "Spinach") {
     this.price += 3;
-  } else if (this.vegTopping === "Tomato") {
+  } else if (this.vegTopping === "Basil") {
     this.price += 2;
   } else if (this.vegTopping === "Artichoke") {
     this.price += 4;
+  } else if (this.vegTopping === "None") {
+    this.price += 0;
   }
   return this.price
 }
@@ -88,10 +120,14 @@ function displayOrder(orderDisplay) {
 function showOrder (orderId) {
   var pizza = order.findOrder(orderId);
   pizza.addSizePrice();
+  pizza.addSaucePrice();
+  pizza.addCheesePrice();
   pizza.addMeatToppingPrice();
   pizza.addVegToppingPrice();
   $("#show-order").show();
   $(".name").html(pizza.name);
+  $(".sauce").html(pizza.sauce);
+  $(".cheese").html(pizza.cheese);
   $(".meatTopping").html(pizza.meatTopping);
   $(".vegTopping").html(pizza.vegTopping);
   $(".size").html(pizza.size);
@@ -109,15 +145,19 @@ $(document).ready(function() {
   $("form#newPizza").submit(function(event){
     event.preventDefault();
     var inputtedName = $("input#newName").val();
+    var inputtedSauce = $("select#newSauce").val();
+    var inputtedCheese = $("select#newCheese").val();
     var inputtedMeatTopping = $("select#newMeatTopping").val();
     var inputtedVegTopping = $("select#newVegTopping").val();
     var inputtedSize = $("select#newSize").val();
     var pizzaPrice = this.price
     $("input#newName").val("");
+    $("select#newSauce").val("");
+    $("select#newCheese").val("");
     $("select#newMeatTopping").val("");
     $("select#newVegTopping").val("");
     $("select#newSize").val("");
-    var newPizza = new Pizza(inputtedName, inputtedMeatTopping, inputtedVegTopping, inputtedSize, pizzaPrice);
+    var newPizza = new Pizza(inputtedName, inputtedSauce, inputtedCheese, inputtedMeatTopping, inputtedVegTopping, inputtedSize, pizzaPrice);
     order.addOrder(newPizza);
     displayOrder(order);
 

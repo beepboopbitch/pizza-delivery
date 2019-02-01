@@ -23,8 +23,27 @@
               <input type="text" class="form-control" id="newName">
             </div>
             <div class="from-group">
+              <label for="newSauce">Sauce:</label>
+              <select class="form-control" id="newSauce">
+                <option value="None">None</option>
+                <option value="RedSauce">Red Sauce</option>
+                <option value="GarlicSauce">Garlic Sauce</option>
+                <option value="BBQSauce">BBQ Sauce</option>
+              </select>
+            </div>
+            <div class="from-group">
+              <label for="newCheese">Cheese:</label>
+              <select class="form-control" id="newCheese">
+                <option value="None">None</option>
+                <option value="Provolone">Provolone</option>
+                <option value="Parmigian">Parmigian</option>
+                <option value="Cheddar">Cheddar</option>
+              </select>
+            </div>
+            <div class="from-group">
               <label for="newMeatTopping">Meat topping:</label>
               <select class="form-control" id="newMeatTopping">
+                <option value="None">None</option>
                 <option value="Chicken">Chicken</option>
                 <option value="Beef">Beef</option>
                 <option value="Anchovy">Anchovy</option>
@@ -34,9 +53,10 @@
             <div class="from-group">
               <label for="newVegTopping">Vegetable topping:</label>
               <select class="form-control" id="newVegTopping">
+                <option value="None">None</option>
                 <option value="Olive">Olive</option>
                 <option value="Spinach">Spinach</option>
-                <option value="Tomato">Tomato</option>
+                <option value="Basil">Basil</option>
                 <option value="Artichoke">Artichoke</option>
               </select>
             </div>
@@ -58,6 +78,8 @@
         <div class="col-md-6">
           <div id="show-order">
             <p>Name: <span class="name"></span></p>
+            <p>Sauce: <span class="sauce"></span></p>
+            <p>Cheese: <span class="cheese"></span></p>
             <p>Meat topping: <span class="meatTopping"></span></p>
             <p>Vegetable Topping: <span class="vegTopping"></span></p>
             <p>Size: <span class="size"></span></p>
