@@ -32,16 +32,11 @@ function Pizza(name, meatTopping, vegTopping, size) {
   this.size = size;
   this.price = 0;
 }
-console.log(Pizza(this.price))
-console.log(this.size)
-Pizza.prototype.applyScore = function(price) {
-  price = this.addPrice
-  this.price.push(price);
-}
 
 Pizza.prototype.addPrice = function() {
-  console.log(this.price)
-  this.price += 1;
+  if(this.size === "Medium"){
+    this.price += 3;
+  }
   return this.price
 }
 
@@ -60,8 +55,7 @@ function displayOrder(orderDisplay) {
 
 function showOrder (orderId) {
   var pizza = order.findOrder(orderId);
-
-
+  pizza.addPrice();
   $("#show-order").show();
   $(".name").html(pizza.name);
   $(".meatTopping").html(pizza.meatTopping);
