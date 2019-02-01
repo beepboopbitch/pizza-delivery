@@ -65,13 +65,13 @@ $(document).ready(function() {
   $("form#newPizza").submit(function(event){
     event.preventDefault();
     var inputtedName = $("input#newName").val();
-    var inputtedMeatTopping = $("input#newMeatTopping").val();
-    var inputtedVegTopping = $("input#newVegTopping").val();
-    var inputtedSize = $("input#newSize").val();
+    var inputtedMeatTopping = $("select#newMeatTopping").val();
+    var inputtedVegTopping = $("select#newVegTopping").val();
+    var inputtedSize = $("select#newSize").val();
     $("input#newName").val("");
-    $("input#newMeatTopping").val("");
-    $("input#newVegTopping").val("");
-    $("input#newSize").val("");
+    $("select#newMeatTopping").val("");
+    $("select#newVegTopping").val("");
+    $("select#newSize").val("");
     var newPizza = new Pizza(inputtedName, inputtedMeatTopping, inputtedVegTopping, inputtedSize);
     order.addOrder(newPizza);
     displayOrder(order);
