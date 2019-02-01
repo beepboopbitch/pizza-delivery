@@ -33,15 +33,14 @@ function Pizza(name, meatTopping, vegTopping, size) {
   this.price = 0;
 }
 
-
+Pizza.prototype.addPrice = function () {
+  if (this.size === $("select#newSize").val("Medium")) {
+    this.price += 1;
+  }
+  return this.price
+}
 
 var order = new Order();
-
-Pizza.prototype.addPrice = function() {
-  if (this.size === $("select#newSize").val("Medium")) {
-    this.price += 1
-  }
-}
 
 function displayOrder(orderDisplay) {
   var orders = $("ul#orders");
@@ -51,6 +50,8 @@ function displayOrder(orderDisplay) {
   });
   orders.html(orderInfo)
 }
+
+
 
 function showOrder (orderId) {
   var pizza = order.findOrder(orderId);
@@ -76,13 +77,15 @@ $(document).ready(function() {
     var inputtedMeatTopping = $("select#newMeatTopping").val();
     var inputtedVegTopping = $("select#newVegTopping").val();
     var inputtedSize = $("select#newSize").val();
-    var pizzaPrice = "10"
+    var pizzaPrice = this.price
     $("input#newName").val("");
     $("select#newMeatTopping").val("");
     $("select#newVegTopping").val("");
     $("select#newSize").val("");
-    var newPizza = new Pizza(inputtedName, inputtedMeatTopping, inputtedVegTopping, inputtedSize, pizzaPrice);
+    var newPizza = new Pizza(inputtedName, inputtedMeatTopping, inputtedVegTopping, inputtedSize);
     order.addOrder(newPizza);
+    newPizza.addScore(this.price);
     displayOrder(order);
+
   })
 })
