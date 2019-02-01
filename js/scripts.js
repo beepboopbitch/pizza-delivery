@@ -62,12 +62,18 @@ function displayOrder(orderDisplay) {
 
 function showOrder (orderId) {
   var pizza = order.findOrder(orderId);
+
+
   $("#show-order").show();
   $(".name").html(pizza.name);
   $(".meatTopping").html(pizza.meatTopping);
   $(".vegTopping").html(pizza.vegTopping);
   $(".size").html(pizza.size);
   $(".price").html(pizza.price);
+  if(pizza.size == $("select#newSize").val("Medium")) {
+    pizza.price += 1;
+  }
+  return pizza.price
 }
 
 function attachOrder() {
@@ -84,7 +90,7 @@ $(document).ready(function() {
     var inputtedMeatTopping = $("select#newMeatTopping").val();
     var inputtedVegTopping = $("select#newVegTopping").val();
     var inputtedSize = $("select#newSize").val();
-    var pizzaPrice = this.price
+    var pizzaPrice = pizza.price
     $("input#newName").val("");
     $("select#newMeatTopping").val("");
     $("select#newVegTopping").val("");
