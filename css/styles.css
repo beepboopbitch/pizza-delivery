@@ -1,5 +1,6 @@
 #show-order {
   display: none;
+  margin-left: 50px;
 }
 
 body {
@@ -9,4 +10,16 @@ body {
 
 .btn {
   color: white;
+}
+
+.pizza {
+  margin-bottom: 30px;
+  margin-top: 40px;
+  border: solid white 5px;
+  width: 300px;
+
+}
+
+.receipts {
+  margin-top: 50px;
 }
