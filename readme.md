@@ -12,6 +12,7 @@ _A website that can hold orders for multiple pizzas and calculate their price ba
 
 * _input name, toppings, and size, and have it display in receipt_
 * _calculate price based on toppings and size and have it display in receipt_
+* _be able to make an array of orders and display each one when clicked_
 
 
 ## Setup

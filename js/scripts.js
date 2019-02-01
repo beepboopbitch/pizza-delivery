@@ -119,11 +119,7 @@ function displayOrder(orderDisplay) {
 
 function showOrder (orderId) {
   var pizza = order.findOrder(orderId);
-  pizza.addSizePrice();
-  pizza.addSaucePrice();
-  pizza.addCheesePrice();
-  pizza.addMeatToppingPrice();
-  pizza.addVegToppingPrice();
+
   $("#show-order").show();
   $(".name").html(pizza.name);
   $(".sauce").html(pizza.sauce);
@@ -158,6 +154,11 @@ $(document).ready(function() {
     $("select#newVegTopping").val("");
     $("select#newSize").val("");
     var newPizza = new Pizza(inputtedName, inputtedSauce, inputtedCheese, inputtedMeatTopping, inputtedVegTopping, inputtedSize, pizzaPrice);
+    newPizza.addSizePrice();
+    newPizza.addSaucePrice();
+    newPizza.addCheesePrice();
+    newPizza.addMeatToppingPrice();
+    newPizza.addVegToppingPrice();
     order.addOrder(newPizza);
     displayOrder(order);
 
