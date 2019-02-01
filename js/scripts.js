@@ -32,7 +32,8 @@ function Pizza(name, meatTopping, vegTopping, size) {
   this.size = size;
   this.price = 0;
 }
-
+console.log(Pizza(this.price))
+console.log(this.size)
 Pizza.prototype.applyScore = function(price) {
   price = this.addPrice
   this.price.push(price);
@@ -40,10 +41,7 @@ Pizza.prototype.applyScore = function(price) {
 
 Pizza.prototype.addPrice = function() {
   console.log(this.price)
-  if (this.size === "Medium") {
-    this.price += 1;
-    console.log(this.price)
-  }
+  this.price += 1;
   return this.price
 }
 
@@ -70,10 +68,6 @@ function showOrder (orderId) {
   $(".vegTopping").html(pizza.vegTopping);
   $(".size").html(pizza.size);
   $(".price").html(pizza.price);
-  if(pizza.size == $("select#newSize").val("Medium")) {
-    pizza.price += 1;
-  }
-  return pizza.price
 }
 
 function attachOrder() {
@@ -90,12 +84,12 @@ $(document).ready(function() {
     var inputtedMeatTopping = $("select#newMeatTopping").val();
     var inputtedVegTopping = $("select#newVegTopping").val();
     var inputtedSize = $("select#newSize").val();
-    var pizzaPrice = pizza.price
+    var pizzaPrice = this.price
     $("input#newName").val("");
     $("select#newMeatTopping").val("");
     $("select#newVegTopping").val("");
     $("select#newSize").val("");
-    var newPizza = new Pizza(inputtedName, inputtedMeatTopping, inputtedVegTopping, inputtedSize);
+    var newPizza = new Pizza(inputtedName, inputtedMeatTopping, inputtedVegTopping, inputtedSize, pizzaPrice);
     order.addOrder(newPizza);
     displayOrder(order);
 
