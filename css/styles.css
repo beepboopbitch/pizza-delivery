@@ -8,10 +8,6 @@ body {
   color: white;
 }
 
-.btn {
-  color: white;
-}
-
 .pizza {
   margin-bottom: 30px;
   margin-top: 40px;
@@ -22,4 +18,13 @@ body {
 
 .receipts {
   margin-top: 50px;
+}
+
+.jumbotron {
+  background-color: #FFF4E0;
+  color: black;
+}
+
+.pizzaReceipt {
+  margin-left: 50px;
 }
