@@ -104,9 +104,10 @@ Pizza.prototype.addVegToppingPrice = function() {
   return this.price
 }
 
-var order = new Order();
+
 
 function displayOrder(orderDisplay) {
+
   var orders = $("ul#orders");
   var orderInfo = "";
   orderDisplay.orders.forEach(function(order) {
@@ -115,11 +116,10 @@ function displayOrder(orderDisplay) {
   orders.html(orderInfo)
 }
 
-
+var order = new Order();
 
 function showOrder (orderId) {
   var pizza = order.findOrder(orderId);
-
   $("#show-order").show();
   $(".name").html(pizza.name);
   $(".sauce").html(pizza.sauce);

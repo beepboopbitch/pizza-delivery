@@ -10,11 +10,16 @@ _A website that can hold orders for multiple pizzas and calculate their price ba
 
 ## Specs
 
-* _input name, toppings, and size, and have it display in receipt_
-* _calculate price based on toppings and size and have it display in receipt_
-* _be able to make an array of orders and display each one when clicked_
-* _order of red sauce, parmigian, pepperoni, olive, medium should add up to $17 and display price in receipt_
-
+* _The program will gather inputs of option choices as well as user's name_
+* _input: option(Beef)_
+* _output: Beef_
+* _The program will store input values in orders and add one to each new orders id in a loop_
+* _The program will display price of order based on inputs_
+* _input: red sauce, parmigian, pepperoni, olive, medium_
+* _output: $17_
+* _when list of <li> orders is clicked, clicked name will only show receipt for given order based on its id_
+* _input: click order <li>_
+* _output: showOrder(this.id)_
 
 ## Setup
 
