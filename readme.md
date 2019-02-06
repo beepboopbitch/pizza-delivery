@@ -17,8 +17,8 @@ _A website that can hold orders for multiple pizzas and calculate their price ba
 * _The program will display price of order based on inputs_
 * _input: red sauce, parmigian, pepperoni, olive, medium_
 * _output: $17_
-* _when list of <li> orders is clicked, clicked name will only show receipt for given order based on its id_
-* _input: click order <li>_
+* _when list of li orders is clicked, clicked name will only show receipt for given order based on its id_
+* _input: click order li_
 * _output: showOrder(this.id)_
 
 ## Setup
